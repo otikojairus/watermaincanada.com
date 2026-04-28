@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" fill="none" role="img" aria-label="Water Main Canada">
+  <rect width="640" height="160" rx="30" fill="#103f46"/>
+  <g transform="translate(26 32)">
+    <rect width="96" height="96" rx="24" fill="#0c3238"/>
+    <path d="M15 60c11-8 22-8 33 0s22 8 33 0" fill="none" stroke="#43c2d1" stroke-width="7" stroke-linecap="round"/>
+    <path d="M24 37c15 9 33 9 48 0" fill="none" stroke="#f2c14e" stroke-width="7" stroke-linecap="round"/>
+    <path d="M48 18c9 11 14 20 14 27 0 8-6 14-14 14s-14-6-14-14c0-7 5-16 14-27Z" fill="#f7fbfb"/>
+    <path d="M47 31c4 5 6 9 6 13 0 3-2 5-5 5s-5-2-5-5c0-4 1-8 4-13Z" fill="#43c2d1"/>
+  </g>
+  <text x="150" y="74" fill="#f7fbfb" font-family="Arial, sans-serif" font-size="38" font-weight="800">Water Main Canada</text>
+  <text x="152" y="111" fill="#b8d9dc" font-family="Arial, sans-serif" font-size="20" font-weight="600">Sewer backups • Water mains • Leak detection</text>
+</svg>
