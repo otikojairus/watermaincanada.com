@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { PhoneLink } from "@/components/phone-link";
 import { SiteLogo } from "@/components/site-logo";
-import { EMERGENCY_PHONE_DISPLAY } from "@/lib/seo";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -39,9 +37,6 @@ export function SiteNavbar() {
               </Link>
             ))}
           </nav>
-          <PhoneLink className="wmc-btn wmc-btn-primary hidden lg:inline-flex" location="header" pageTier="global">
-            Call {EMERGENCY_PHONE_DISPLAY}
-          </PhoneLink>
           <button
             type="button"
             className="wmc-menu-btn lg:hidden"
@@ -70,16 +65,7 @@ export function SiteNavbar() {
               </Link>
             ))}
           </nav>
-          <PhoneLink className="wmc-btn wmc-btn-primary mt-6 w-full" location="mobile-menu" pageTier="global">
-            Call {EMERGENCY_PHONE_DISPLAY}
-          </PhoneLink>
         </div>
-      </div>
-
-      <div className="wmc-mobile-call lg:hidden">
-        <PhoneLink className="wmc-btn wmc-btn-primary w-full" location="mobile-sticky" pageTier="global">
-          Call {EMERGENCY_PHONE_DISPLAY}
-        </PhoneLink>
       </div>
     </>
   );

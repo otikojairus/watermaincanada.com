@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PhoneLink } from "@/components/phone-link";
-import { WATERMAIN_PAGES, WATERMAIN_SERVICES, getPagesByService } from "@/lib/watermain-data";
+import { WATERMAIN_SERVICES, getPagesByService } from "@/lib/watermain-data";
 import { EMERGENCY_PHONE_DISPLAY, SITE_NAME, absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Sewer and Water Main Services Across Canada",
   description:
-    "Explore Water Main Canada's sewer backup, sewage cleanup, drain cleaning, sewer repair, water main repair, replacement, and leak detection pages.",
+    "Explore Water Main Canada's sewer backup, sewage cleanup, drain cleaning, sewer repair, water main repair, replacement, and leak detection services.",
   alternates: {
     canonical: "/services",
   },
@@ -26,13 +26,13 @@ export default function ServicesPage() {
       <section className="wmc-index-hero">
         <div className="wmc-container wmc-index-hero-inner">
           <div>
-            <p className="wmc-kicker">Service index</p>
-            <h1 className="wmc-page-title">Eight service groups. Thirty city sets. One clear route to the right page.</h1>
+            <p className="wmc-kicker">Services</p>
+            <h1 className="wmc-page-title">Find the sewer, drain, water line, or leak detection service that fits your situation.</h1>
           </div>
           <div className="wmc-index-summary">
             <p>
-              Start with the symptom that sounds closest. Each service group has city pages built from the Water Main
-              Canada keyword brief, with one primary keyword target per landing page.
+              Start with the symptom that sounds closest. Each service group helps you find local guidance for sewer,
+              drain, water line, water main, or leak detection problems.
             </p>
             <PhoneLink className="wmc-btn wmc-btn-primary" location="services-hero" pageTier="services">
               Call {EMERGENCY_PHONE_DISPLAY}
@@ -48,7 +48,7 @@ export default function ServicesPage() {
             return (
               <article key={service.name} className="wmc-index-row">
                 <div className="wmc-index-row-copy">
-                  <p className="wmc-kicker">{pages.length} city pages</p>
+                  <p className="wmc-kicker">Available in cities across Canada</p>
                   <h2>{service.name}</h2>
                   <p>{service.intro}</p>
                 </div>
@@ -72,12 +72,6 @@ export default function ServicesPage() {
           <PhoneLink className="wmc-btn wmc-btn-primary" location="services-closing" pageTier="services">
             Call {EMERGENCY_PHONE_DISPLAY}
           </PhoneLink>
-        </div>
-      </section>
-
-      <section className="pb-14">
-        <div className="wmc-container text-sm text-[var(--ink-muted)]">
-          <p>{WATERMAIN_PAGES.length} generated landing pages are available from the spreadsheet.</p>
         </div>
       </section>
     </main>

@@ -87,8 +87,8 @@ export default function HomePage() {
             <p className="wmc-kicker">Service paths</p>
             <h2 className="wmc-title">Choose the issue that matches what you are seeing.</h2>
             <p className="wmc-copy">
-              Each path starts with symptoms, then moves toward inspection and repair. No keyword pileup, just the
-              situation a visitor is actually dealing with.
+              Each path starts with symptoms, then moves toward inspection and repair so you can understand what may
+              need attention next.
             </p>
           </div>
           <div className="wmc-service-ledger">
@@ -96,7 +96,7 @@ export default function HomePage() {
               <article key={service.name} className="wmc-ledger-row">
                 <h3>{service.name}</h3>
                 <p>{service.summary}</p>
-                <Link href="/services">Open service index</Link>
+                <Link href="/services">Learn More</Link>
               </article>
             ))}
           </div>
@@ -107,12 +107,12 @@ export default function HomePage() {
         <div className="wmc-container">
           <div className="wmc-map-head">
             <div>
-              <p className="wmc-kicker">Local pages</p>
-              <h2 className="wmc-title">Thirty Canadian city sets, organized for fast routing.</h2>
+              <p className="wmc-kicker">Local help</p>
+              <h2 className="wmc-title">Choose your city for sewer, drain, and water line support.</h2>
             </div>
             <p>
-              Pick a city to start with its sewer backup page, then move to related water main, water line, drain, and
-              leak detection pages from there.
+              Pick a city to start with the issue closest to what you are seeing, then review related water main, water
+              line, drain, and leak detection services from there.
             </p>
           </div>
           <div className="wmc-city-ribbon">
@@ -133,10 +133,10 @@ export default function HomePage() {
         <div className="wmc-container wmc-priority-layout">
           <div className="wmc-priority-copy">
             <p className="wmc-kicker">Priority response</p>
-            <h2 className="wmc-title">High-intent pages ready from the spreadsheet.</h2>
+            <h2 className="wmc-title">Find urgent sewer and water line help by city.</h2>
             <p className="wmc-copy">
-              These pages follow the spreadsheet brief with one primary keyword target per page, visitor-focused copy,
-              FAQ schema, service schema, and local context drawn from the row.
+              Start with your city and the problem you are facing, then review the symptoms, inspection steps, and
+              repair options that may apply.
             </p>
           </div>
           <div className="wmc-priority-stack">

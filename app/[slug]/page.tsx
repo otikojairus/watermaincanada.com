@@ -127,9 +127,9 @@ export default async function WaterMainLandingPage({ params }: PageProps) {
             </p>
           </div>
           <div className="wmc-focus-ticket">
-            <p className="wmc-kicker">Page focus</p>
+            <p className="wmc-kicker">Service focus</p>
             <strong>{page.primaryKeyword}</strong>
-            <small>One keyword target. Natural supporting copy.</small>
+            <small>Local guidance for the issue you are trying to solve.</small>
           </div>
         </div>
       </section>
@@ -155,8 +155,8 @@ export default async function WaterMainLandingPage({ params }: PageProps) {
         <div className="wmc-container wmc-related-layout">
           <div>
             <p className="wmc-kicker">Nearby next steps</p>
-            <h2 className="wmc-title">More Water Main Canada pages for {page.city}.</h2>
-            <p className="wmc-copy">If your issue turns out to be related but different, these pages may fit better.</p>
+            <h2 className="wmc-title">Related services for {page.city}.</h2>
+            <p className="wmc-copy">If your issue turns out to be related but different, one of these services may fit better.</p>
           </div>
           <div className="wmc-link-list">
             {cityPages.map((item) => (

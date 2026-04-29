@@ -50,9 +50,9 @@ export default function AboutPage() {
             confusing because the most important issue is often out of sight.
           </p>
           <p>
-            The site is organized around service-and-city pages so visitors can quickly find the situation that matches
-            what they are seeing. Each page uses one primary keyword target from the planning spreadsheet, but the copy
-            is written for the person trying to protect a property.
+            Water Main Canada is organized around the way people search during a stressful property problem: by the
+            service they need and the city they are in. The guidance is written for the person trying to protect a
+            property, with practical context for local sewer, drain, water line, and leak detection concerns.
           </p>
           <p>
             If you are unsure what category your problem falls into, call and describe the symptoms. We will help you
