@@ -142,8 +142,7 @@ export default function HomePage() {
           <div className="wmc-priority-stack">
             {priorityPages.map((page) => (
               <Link key={page.slug} href={`/${page.slug}`}>
-                <span>{page.city}</span>
-                {page.h1}
+                {page.city}
               </Link>
             ))}
           </div>

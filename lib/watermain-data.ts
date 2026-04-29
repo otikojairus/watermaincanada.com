@@ -7254,6 +7254,89 @@ export function buildFaqs(page: WaterMainPage) {
   }));
 }
 
+type ServiceFocusCopy = {
+  summary: string;
+  points: string[];
+};
+
+export function buildServiceFocus(page: WaterMainPage): ServiceFocusCopy {
+  const focusCopy: Record<string, ServiceFocusCopy> = {
+    "emergency-sewer-backup-response": {
+      summary: `A ${page.primaryKeyword} call usually starts with containment: stop water use, keep people away from affected drains, and confirm whether the backup is isolated or affecting multiple fixtures.`,
+      points: [
+        "Watch floor drains, basement toilets, tubs, and laundry standpipes for rising wastewater.",
+        "Avoid chemical drain cleaners when sewage is present because they can create extra cleanup risk.",
+        "Ask whether camera inspection, drain clearing, cleanup coordination, or sewer line repair is the next practical step.",
+      ],
+    },
+    "sewage-cleanup-and-basement-backup-solutions": {
+      summary: `For ${page.primaryKeyword}, the first priority is separating cleanup safety from the plumbing repair so contaminated material, moisture, and odour are not left behind.`,
+      points: [
+        "Limit foot traffic through affected rooms until the area is assessed.",
+        "Document visible damage before moving materials if insurance may be involved.",
+        "Confirm whether the backup source has been corrected before rebuilding finishes or flooring.",
+      ],
+    },
+    "main-drain-backup-and-clogged-drain-services": {
+      summary: `${page.primaryKeyword} issues often show up as slow fixtures, gurgling, or water returning through the lowest drain, which means the blockage may be beyond a single sink or toilet.`,
+      points: [
+        "Note which fixtures are slow and whether symptoms happen after laundry, showers, or heavy water use.",
+        "Recurring clogs should be inspected rather than repeatedly cleared without finding the cause.",
+        "Main drain service may include augering, hydro jetting, or camera inspection depending on what the line shows.",
+      ],
+    },
+    "sewer-line-repair-and-pipe-collapse-repair": {
+      summary: `${page.primaryKeyword} is usually considered when backups keep returning or inspection points to roots, pipe settlement, breaks, or a collapsed section underground.`,
+      points: [
+        "A camera inspection helps separate a repairable blockage from a damaged pipe.",
+        "Soft ground, odours, and repeated backups can point to a deeper line issue.",
+        "The best repair path depends on pipe depth, access, condition, and the affected section.",
+      ],
+    },
+    "emergency-water-main-repair": {
+      summary: `${page.primaryKeyword} support is for active supply-side problems such as sudden pressure loss, surface water, saturated soil, or a leak that may be between the building and the street connection.`,
+      points: [
+        "Look for unexpected wet areas, hissing sounds, pressure drops, or meter movement when fixtures are off.",
+        "Protect nearby belongings and avoid digging until utility and pipe locations are understood.",
+        "Repair planning should confirm whether the issue is private-side, municipal-side, or inside the building.",
+      ],
+    },
+    "water-line-repair-and-water-pipe-repair": {
+      summary: `${page.primaryKeyword} starts with narrowing the source of pressure loss, discoloured water, damp areas, or a suspected private water service leak.`,
+      points: [
+        "Check whether symptoms affect one fixture, one room, or the whole property.",
+        "Hidden supply leaks can damage soil, slabs, walls, and flooring if they are left unresolved.",
+        "The repair may be a targeted pipe fix, leak location, excavation, or replacement recommendation.",
+      ],
+    },
+    "water-main-replacement-and-line-replacement": {
+      summary: `${page.primaryKeyword} is worth discussing when an older line is failing repeatedly, the pipe material is no longer dependable, or a repair would only delay another disruption.`,
+      points: [
+        "Replacement decisions should account for pipe age, leak history, material, access, and long-term reliability.",
+        "A planned replacement can reduce repeat emergency calls and unexpected excavation.",
+        "Ask how service interruption, restoration, permits, and access will be handled before work begins.",
+      ],
+    },
+    "leak-detection-and-preventive-maintenance": {
+      summary: `${page.primaryKeyword} helps locate hidden water loss before it becomes visible damage, especially when bills, pressure, sounds, or damp areas do not match normal use.`,
+      points: [
+        "Small pressure changes or meter movement can be early clues that a line is leaking.",
+        "Non-invasive checks can help decide whether opening walls, slabs, or soil is necessary.",
+        "Preventive inspection is useful after repeated plumbing symptoms or before a small concern becomes urgent.",
+      ],
+    },
+  };
+
+  return focusCopy[page.serviceSlug] ?? {
+    summary: `Local ${page.primaryKeyword} guidance starts with the symptoms you can see, then moves toward inspection, safety, and a repair path that fits the property.`,
+    points: [
+      "Describe when the issue started and whether it is getting worse.",
+      "Keep unsafe areas clear until the source is understood.",
+      "Use the inspection to compare practical next steps before committing to work.",
+    ],
+  };
+}
+
 export function buildSchemas(page: WaterMainPage) {
   const faqs = buildFaqs(page);
   return [

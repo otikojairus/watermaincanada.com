@@ -9,6 +9,7 @@ import {
   buildFaqs,
   buildMeta,
   buildSchemas,
+  buildServiceFocus,
   getPagesByCity,
   getRelatedPages,
   getWaterMainPageBySlug,
@@ -38,6 +39,7 @@ export default async function WaterMainLandingPage({ params }: PageProps) {
   }
 
   const faqs = buildFaqs(page);
+  const serviceFocus = buildServiceFocus(page);
   const relatedPages = getRelatedPages(page);
   const cityPages = getPagesByCity(page.city).filter((item) => item.slug !== page.slug).slice(0, 5);
   const localNote = page.localNotes.replace(/^Mention\\s+/i, "");
@@ -129,7 +131,12 @@ export default async function WaterMainLandingPage({ params }: PageProps) {
           <div className="wmc-focus-ticket">
             <p className="wmc-kicker">Service focus</p>
             <strong>{page.primaryKeyword}</strong>
-            <small>Local guidance for the issue you are trying to solve.</small>
+            <p>{serviceFocus.summary}</p>
+            <ul>
+              {serviceFocus.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

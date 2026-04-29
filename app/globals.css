@@ -505,23 +505,14 @@ a {
 }
 
 .wmc-priority-stack a {
-  display: grid;
-  gap: 0.45rem;
+  display: block;
   border-bottom: 1px solid rgba(255, 255, 255, 0.24);
   padding: 1rem 0;
   color: white;
   font-family: var(--font-display), serif;
-  font-size: 1.2rem;
-  line-height: 1.1;
-}
-
-.wmc-priority-stack span {
-  color: var(--gold);
-  font-family: var(--font-body), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  font-weight: 650;
+  line-height: 1;
 }
 
 .wmc-closing-section {
@@ -670,11 +661,25 @@ a {
   line-height: 0.98;
 }
 
-.wmc-focus-ticket small {
-  display: block;
-  margin-top: 0.8rem;
+.wmc-focus-ticket p:not(.wmc-kicker) {
+  margin-top: 1rem;
   color: var(--ink-muted);
   font-weight: 700;
+  line-height: 1.55;
+}
+
+.wmc-focus-ticket ul {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+}
+
+.wmc-focus-ticket li {
+  color: var(--ink);
+  font-size: 0.96rem;
+  font-weight: 750;
+  line-height: 1.45;
 }
 
 .wmc-faq-list {
