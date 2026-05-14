@@ -51,11 +51,14 @@ export default function ServicesPage() {
                   <p className="wmc-kicker">Available in cities across Canada</p>
                   <h2>{service.name}</h2>
                   <p>{service.intro}</p>
+                  <Link href={`/services/${service.slug}`} className="wmc-btn wmc-btn-ghost">
+                    View {service.name} Pillar
+                  </Link>
                 </div>
                 <div className="wmc-index-city-list">
-                  {pages.slice(0, 10).map((page) => (
+                  {pages.map((page) => (
                     <Link key={page.slug} href={`/${page.slug}`}>
-                      {page.city}
+                      {page.primaryKeyword}
                     </Link>
                   ))}
                 </div>

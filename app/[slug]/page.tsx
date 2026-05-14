@@ -8,6 +8,7 @@ import {
   buildCanonicalPath,
   buildFaqs,
   buildMeta,
+  buildUniqueIntroParagraph,
   buildSchemas,
   buildServiceFocus,
   getPagesByCity,
@@ -42,6 +43,7 @@ export default async function WaterMainLandingPage({ params }: PageProps) {
   const serviceFocus = buildServiceFocus(page);
   const relatedPages = getRelatedPages(page);
   const cityPages = getPagesByCity(page.city).filter((item) => item.slug !== page.slug).slice(0, 5);
+  const pillarPath = `/services/${page.serviceSlug}`;
   const localNote = page.localNotes.replace(/^Mention\\s+/i, "");
 
   return (
@@ -57,9 +59,7 @@ export default async function WaterMainLandingPage({ params }: PageProps) {
           <h1 className="wmc-page-title">{page.h1}</h1>
           <div className="wmc-page-hero-bottom">
             <p>
-              You are probably here because something is backing up, leaking, smelling wrong, or putting water where it
-              should not be. Water Main Canada helps {page.city} homeowners and property managers get calm, practical
-              next steps.
+              {buildUniqueIntroParagraph(page)}
             </p>
             <PhoneLink className="wmc-btn wmc-btn-primary" location={page.slug} pageTier="landing">
               {page.ctaText}
@@ -164,6 +164,10 @@ export default async function WaterMainLandingPage({ params }: PageProps) {
             <p className="wmc-kicker">Nearby next steps</p>
             <h2 className="wmc-title">Related services for {page.city}.</h2>
             <p className="wmc-copy">If your issue turns out to be related but different, one of these services may fit better.</p>
+            <p className="wmc-copy">
+              Start with the full service guide:{" "}
+              <Link href={pillarPath}>{page.serviceCluster} in {page.city}</Link>.
+            </p>
           </div>
           <div className="wmc-link-list">
             {cityPages.map((item) => (

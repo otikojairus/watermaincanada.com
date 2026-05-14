@@ -1,4 +1,4 @@
-import { WATERMAIN_PAGES } from "@/lib/watermain-data";
+import { WATERMAIN_PAGES, WATERMAIN_SERVICES } from "@/lib/watermain-data";
 import { getSiteUrl } from "@/lib/seo";
 
 const STATIC_PATHS = ["/", "/services", "/about", "/contact", "/privacy-policy", "/terms-of-service"] as const;
@@ -19,6 +19,10 @@ export function GET() {
     ...STATIC_PATHS.map((path) => ({
       loc: `${siteUrl}${path}`,
       priority: path === "/" ? "1.0" : "0.7",
+    })),
+    ...WATERMAIN_SERVICES.map((service) => ({
+      loc: `${siteUrl}/services/${service.slug}`,
+      priority: "0.8",
     })),
     ...WATERMAIN_PAGES.map((page) => ({
       loc: `${siteUrl}/${page.slug}`,

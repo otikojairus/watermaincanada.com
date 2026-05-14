@@ -7211,6 +7211,10 @@ export function getPagesByService(serviceCluster: string) {
   return WATERMAIN_PAGES.filter((page) => page.serviceCluster === serviceCluster);
 }
 
+export function getServiceBySlug(serviceSlug: string) {
+  return WATERMAIN_SERVICES.find((service) => service.slug === serviceSlug);
+}
+
 export function getPagesByCity(city: string) {
   return WATERMAIN_PAGES.filter((page) => page.city === city);
 }
@@ -7252,6 +7256,11 @@ export function buildFaqs(page: WaterMainPage) {
           ? `Response depends on local availability and site conditions, but Water Main Canada treats urgent ${page.serviceCluster.toLowerCase()} calls in ${page.city} as time-sensitive. Call as soon as you notice active water, sewage, pressure loss, or recurring backup symptoms.`
           : `Coverage depends on your policy, the source of the damage, and whether a sewer, water line, or cleanup endorsement applies. Document the affected area, avoid unsafe contact, and speak with your insurer while the plumbing issue is being assessed.`,
   }));
+}
+
+export function buildUniqueIntroParagraph(page: WaterMainPage) {
+  const localContext = page.localNotes.replace(/^Mention\s+/i, "").replace(/^Note\s+/i, "");
+  return `${page.primaryKeyword} issues in ${page.city} usually start with a specific signal: recurring backups, unexplained damp areas, sudden pressure changes, drain odours, or visible surface water near buried lines. Instead of guessing, start by documenting where the symptom appears, when it worsens, and whether multiple fixtures are affected at the same time. ${localContext}. This local context matters because inspection choices, repair access, and urgency can change by neighbourhood conditions, weather cycles, and municipal connection patterns. Water Main Canada uses that context to help you move from symptom to practical next steps with less disruption.`;
 }
 
 type ServiceFocusCopy = {
@@ -7384,3 +7393,31 @@ export function buildSchemas(page: WaterMainPage) {
     },
   ];
 }
+
+function assertSeoIntegrity() {
+  const h1Seen = new Set<string>();
+  const slugSeen = new Set<string>();
+
+  for (const page of WATERMAIN_PAGES) {
+    if (h1Seen.has(page.h1)) {
+      throw new Error(`Duplicate H1 detected: "${page.h1}"`);
+    }
+    h1Seen.add(page.h1);
+
+    if (slugSeen.has(page.slug)) {
+      throw new Error(`Duplicate slug detected: "${page.slug}"`);
+    }
+    slugSeen.add(page.slug);
+
+    if (page.faqQuestions.length < 3) {
+      throw new Error(`FAQ count is below 3 for slug "${page.slug}"`);
+    }
+
+    const introWords = buildUniqueIntroParagraph(page).trim().split(/\s+/).length;
+    if (introWords < 80) {
+      throw new Error(`Intro paragraph below 80 words for slug "${page.slug}"`);
+    }
+  }
+}
+
+assertSeoIntegrity();
